@@ -1,7 +1,11 @@
 RewriteEngine On
 
-### Homepage
-DirectoryIndex 
+### Page locations ###
+
+# Home
+DirectoryIndex /home/index.html
+# 404
+ErrorDocument 404 /404.html
 
 
 ### Protocol & Subdomain tidying ###
