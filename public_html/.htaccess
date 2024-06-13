@@ -142,6 +142,14 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.mp4 -f
 RewriteRule ^([^\.]+)$ $1.mp4 [NC,L]
 
+# Redirect /file.webm to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.webm [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.webm
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.webm -f
+RewriteRule ^([^\.]+)$ $1.webm [NC,L]
+
 # Redirect /file.mp3 to /file
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.mp3 [NC]
 RewriteRule ^ /%1 [R=301,L]
