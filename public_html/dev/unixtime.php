@@ -12,26 +12,44 @@
         <meta name= "author" content= "SiHy">
         <link rel= "stylesheet" href= "/standardstyle.css">
         <title>
-            <?php echo "unixtime " . date_default_timezone_get() . " :: dev :: sonder \u{0298} monism" ?>
+            unixtime :: dev :: sonder &#x0298; monism
         </title>
     </head>
     <body>
+        <h1>
+            <a href="https://www.sondermonism.com">sonder &#x0298; monism</a>
+        </h1>
         <h2>
-            unix time:
+            <a href="https://www.sondermonism.com/dev">dev</a> :: unix time
         </h2>
         <h3>
-            (seconds passed since 01-01-1970)
+            aka seconds passed since 00:00:00 UTC, 01-01-1970:
         </h3>
         <?php
-        /*
-        1 minute = 60
-        1 hour = 3600
-        1 day = 86400
-        1 week = 604800
-        1 month(30.44 days) = 2629743
-        1 year(365.24 days) = 31556926
-        */
-        echo sprintf('%.2f', round(microtime(true), 2))
+        echo sprintf('%.2f', round(microtime(true), 2));
         ?>
+        <br>
+        <br>
+        <pre>
+            1 millisecond =======        0.001
+            1 centisecond =======        0.01
+            1 decisecond ========        0.1
+            1 second ============        1
+            1 minute ============       60
+            1 hour ==============     3600
+            1 day ===============    86400
+            1 week ==============   604800
+            1 month(30.44 days) =  2629743
+            1 year(365.24 days) = 31556926
+        </pre>
+        <br>
+        and your timezone is:
+        <?php
+        echo date_default_timezone_get();
+        ?>
+        <br>
+        <p>
+            not that it matters; unix time is universal
+        </p>
     </body>
 </html>
