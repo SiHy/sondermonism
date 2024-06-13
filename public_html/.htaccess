@@ -1,0 +1,295 @@
+RewriteEngine On
+
+### Homepage
+DirectoryIndex 
+
+
+### Protocol & Subdomain tidying ###
+
+# Force https
+RewriteCond %{SERVER_PORT} 80 [OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301]
+
+# Remove www.
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301]
+
+
+### Path File Extension removal ###
+
+## Web ##
+
+# Redirect /file.html to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect /file.php to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.php [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Redirect /file.js to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.js [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.js
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.js -f
+RewriteRule ^([^\.]+)$ $1.js [NC,L]
+
+# Redirect /file.css to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.css [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.css
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.css -f
+RewriteRule ^([^\.]+)$ $1.css [NC,L]
+
+## Data Markup ##
+
+# Redirect /file.json to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.json [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.json
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.json -f
+RewriteRule ^([^\.]+)$ $1.json [NC,L]
+
+# Redirect /file.xml to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.xml [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.xml
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.xml -f
+RewriteRule ^([^\.]+)$ $1.xml [NC,L]
+
+## Basic Data Files ##
+
+# Redirect /file.csv to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.csv [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.csv
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.csv -f
+RewriteRule ^([^\.]+)$ $1.csv [NC,L]
+
+# Redirect /file.txt to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.txt [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.txt
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.txt -f
+RewriteRule ^([^\.]+)$ $1.txt [NC,L]
+
+# Redirect /file.rtf to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.rtf [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.rtf
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.rtf -f
+RewriteRule ^([^\.]+)$ $1.rtf [NC,L]
+
+## Images ##
+
+# Redirect /file.jpg to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.jpg [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.jpg
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.jpg -f
+RewriteRule ^([^\.]+)$ $1.jpg [NC,L]
+
+# Redirect /file.gif to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.gif [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.gif
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.gif -f
+RewriteRule ^([^\.]+)$ $1.gif [NC,L]
+
+# Redirect /file.png to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.png [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.png
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.png -f
+RewriteRule ^([^\.]+)$ $1.png [NC,L]
+
+# Redirect /file.svg to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.svg [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.svg
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.svg -f
+RewriteRule ^([^\.]+)$ $1.svg [NC,L]
+
+## Video & Audio ##
+
+# Redirect /file.mp4 to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.mp4 [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.mp4
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.mp4 -f
+RewriteRule ^([^\.]+)$ $1.mp4 [NC,L]
+
+# Redirect /file.mp3 to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.mp3 [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.mp3
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.mp3 -f
+RewriteRule ^([^\.]+)$ $1.mp3 [NC,L]
+
+# Redirect /file.wav to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.wav [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.wav
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.wav -f
+RewriteRule ^([^\.]+)$ $1.wav [NC,L]
+
+# Redirect /file.ogg to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.ogg [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.ogg
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.ogg -f
+RewriteRule ^([^\.]+)$ $1.ogg [NC,L]
+
+## Open Office ##
+
+# Redirect /file.odt to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.odt [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.odt
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.odt -f
+RewriteRule ^([^\.]+)$ $1.odt [NC,L]
+
+# Redirect /file.ods to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.ods [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.ods
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.ods -f
+RewriteRule ^([^\.]+)$ $1.ods [NC,L]
+
+# Redirect /file.odp to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.odp [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.odp
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.odp -f
+RewriteRule ^([^\.]+)$ $1.odp [NC,L]
+
+## MS Office ##
+
+# Redirect /file.doc to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.doc [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.doc
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.doc -f
+RewriteRule ^([^\.]+)$ $1.doc [NC,L]
+
+# Redirect /file.docx to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.docx [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.docx
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.docx -f
+RewriteRule ^([^\.]+)$ $1.docx [NC,L]
+
+# Redirect /file.xls to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.xls [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.xls
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.xls -f
+RewriteRule ^([^\.]+)$ $1.xls [NC,L]
+
+# Redirect /file.xlsx to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.xlsx [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.xlsx
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.xlsx -f
+RewriteRule ^([^\.]+)$ $1.xlsx [NC,L]
+
+# Redirect /file.ppt to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.ppt [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.ppt
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.ppt -f
+RewriteRule ^([^\.]+)$ $1.ppt [NC,L]
+
+# Redirect /file.pptx to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.pptx [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.pptx
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.pptx -f
+RewriteRule ^([^\.]+)$ $1.pptx [NC,L]
+
+## Adobe ##
+
+# Redirect /file.pdf to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.pdf [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.pdf
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.pdf -f
+RewriteRule ^([^\.]+)$ $1.pdf [NC,L]
+
+## Archive ##
+
+# Redirect /file.zip to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.zip [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.zip
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.zip -f
+RewriteRule ^([^\.]+)$ $1.zip [NC,L]
+
+# Redirect /file.7z to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.7z [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.7z
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.7z -f
+RewriteRule ^([^\.]+)$ $1.7z [NC,L]
+
+# Redirect /file.rar to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.rar [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.rar
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.rar -f
+RewriteRule ^([^\.]+)$ $1.rar [NC,L]
+
+## Fonts ##
+
+# Redirect /file.ttf to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.ttf [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.ttf
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.ttf -f
+RewriteRule ^([^\.]+)$ $1.ttf [NC,L]
+
+# Redirect /file.otf to /file
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.otf [NC]
+RewriteRule ^ /%1 [R=301,L]
+# Rewrite /file to /file.otf
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.otf -f
+RewriteRule ^([^\.]+)$ $1.otf [NC,L]
