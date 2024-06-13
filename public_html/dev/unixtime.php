@@ -10,7 +10,7 @@
         <meta name= "description" content= "seconds passed since the start of January 1st 1970">
         <meta name= "keywords" content= "unix time, UTC, seconds passed">
         <meta name= "author" content= "SiHy">
-        <link rel= "stylesheet" href= "/public_html/standardstyle.css">
+        <link rel= "stylesheet" href= "/standardstyle.css">
         <title>
             <?php echo "unixtime " . date_default_timezone_get() . " :: dev :: sonder \u{0298} monism" ?>
         </title>
