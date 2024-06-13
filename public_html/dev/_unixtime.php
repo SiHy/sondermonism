@@ -1,5 +1,5 @@
-<!-- sondermonism.com/ -->
-<!-- dev/_unixclock -->
+<!-- sondermonism.com -->
+<!-- /dev/_unixtime -->
 <!-- no frills unix time return -->
 
 <?php
