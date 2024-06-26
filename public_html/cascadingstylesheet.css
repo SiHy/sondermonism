@@ -1,9 +1,12 @@
+/* sondermonism.com */
+/* cascadingstylesheet.css */
+
 body {
   background-color: #130606;
   color: #cce6ff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 1%;
 }
-
 h1 {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -1,5 +1,5 @@
 <!-- sondermonism.com -->
-<!-- /dev/_unixtime -->
+<!-- /dev/_unixtime.php -->
 <!-- no frills unix time return -->
 
 <?php
