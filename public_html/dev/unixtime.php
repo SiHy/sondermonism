@@ -12,12 +12,12 @@
         <meta name= "author" content= "SiHy">
         <link rel= "stylesheet" href= "../cascadingstylesheet.css">
         <title>
-            unixtime :: dev :: sonder &#x0298; monism
+            unixtime :: dev :: sonder &#x2299; monism
         </title>
     </head>
     <body>
         <h1>
-            <a href="../index.html">sonder &#x0298; monism</a> :: <a href="index.html">dev</a> :: unixtime
+            <a href="../home.html">sonder &#x2299; monism</a> :: <a href="index.html">dev</a> :: unixtime
         </h1>
         <h2>
             unix epoch time
@@ -33,16 +33,16 @@
         <small><i>refresh page to update time</i></small>
         <br>
         <pre>
-    1 millisecond =======        0.001
-    1 centisecond =======        0.01
-    1 decisecond ========        0.1
-    1 second ============        1
-    1 minute ============       60
-    1 hour ==============     3600
-    1 day ===============    86400
-    1 week ==============   604800
-    1 month(30.44 days) =  2629743
-    1 year(365.24 days) = 31556926
+1 millisecond =======        0.001
+1 centisecond =======        0.01
+1 decisecond ========        0.1
+1 second ============        1
+1 minute ============       60
+1 hour ==============     3600
+1 day ===============    86400
+1 week ==============   604800
+1 month(30.44 days) =  2629743
+1 year(365.24 days) = 31556926
         </pre>
         <p>
         and your timezone is:

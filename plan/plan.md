@@ -3,6 +3,7 @@
 
 ### INCLUDES:
 - HTML: ``<table> (table), <tr> (row), <td> (datacell), <th> (header)`` *all* escaped tags ``colspan="#"``
+- *may not even need tables after all*
 - *Some* CSS: Make those tables look nice
 - Programming projects hosted, links to those not
     - Basic PHP:
